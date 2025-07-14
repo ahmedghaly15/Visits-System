@@ -55,6 +55,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/lottie/
+    - lib/src/core/locale/lang/ar.json 
+    - lib/src/core/locale/lang/en.json 
   
   fonts:
     - family: Cairo
