@@ -9,23 +9,37 @@ import 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo _repo;
 
-  LoginCubit(this._repo) : super(const LoginState.initial());
+  LoginCubit(this._repo) : super(LoginState.initial());
 
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
   void login() async {
-    emit(const LoginState.loginLoading());
+    emit(state.copyWith(status: LoginStatus.loginLoading));
     final requestBody = LoginRequestBody(
       username: usernameController.text.trim(),
       password: passController.text,
     );
     final result = await _repo.login(requestBody);
     result.when(
-      success: (data) => emit(LoginState.loginSuccess(data)),
-      failure: (failure) => emit(LoginState.loginError(failure.message)),
+      success: (data) => emit(
+        state.copyWith(status: LoginStatus.loginSuccess, loginResponse: data),
+      ),
+      failure: (failure) => emit(
+        state.copyWith(
+          status: LoginStatus.loginFailure,
+          errorMessage: failure.message,
+        ),
+      ),
     );
   }
+
+  void togglePassVisibility() => emit(
+    state.copyWith(
+      status: LoginStatus.togglePassVisibility,
+      isPassObscure: !state.isPassObscure,
+    ),
+  );
 
   @override
   Future<void> close() {

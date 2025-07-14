@@ -12,37 +12,71 @@ part of 'login_state.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$LoginState<T> {
+mixin _$LoginState {
 
-
+ LoginStatus get status; String? get errorMessage; LoginRequestResponse? get loginResponse; bool get isPassObscure;
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LoginStateCopyWith<LoginState> get copyWith => _$LoginStateCopyWithImpl<LoginState>(this as LoginState, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure);
 
 @override
 String toString() {
-  return 'LoginState<$T>()';
+  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure)';
 }
 
 
 }
 
 /// @nodoc
-class $LoginStateCopyWith<T,$Res>  {
-$LoginStateCopyWith(LoginState<T> _, $Res Function(LoginState<T>) __);
+abstract mixin class $LoginStateCopyWith<$Res>  {
+  factory $LoginStateCopyWith(LoginState value, $Res Function(LoginState) _then) = _$LoginStateCopyWithImpl;
+@useResult
+$Res call({
+ LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure
+});
+
+
+
+
+}
+/// @nodoc
+class _$LoginStateCopyWithImpl<$Res>
+    implements $LoginStateCopyWith<$Res> {
+  _$LoginStateCopyWithImpl(this._self, this._then);
+
+  final LoginState _self;
+  final $Res Function(LoginState) _then;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,}) {
+  return _then(_self.copyWith(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as LoginStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String?,loginResponse: freezed == loginResponse ? _self.loginResponse : loginResponse // ignore: cast_nullable_to_non_nullable
+as LoginRequestResponse?,isPassObscure: null == isPassObscure ? _self.isPassObscure : isPassObscure // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
 }
 
 
 /// Adds pattern-matching-related methods to [LoginState].
-extension LoginStatePatterns<T> on LoginState<T> {
+extension LoginStatePatterns on LoginState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -55,14 +89,11 @@ extension LoginStatePatterns<T> on LoginState<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( LoginLoading<T> value)?  loginLoading,TResult Function( LoginSuccess<T> value)?  loginSuccess,TResult Function( LoginError<T> value)?  loginError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LoginState value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case LoginLoading() when loginLoading != null:
-return loginLoading(_that);case LoginSuccess() when loginSuccess != null:
-return loginSuccess(_that);case LoginError() when loginError != null:
-return loginError(_that);case _:
+case _LoginState() when $default != null:
+return $default(_that);case _:
   return orElse();
 
 }
@@ -80,14 +111,11 @@ return loginError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( LoginLoading<T> value)  loginLoading,required TResult Function( LoginSuccess<T> value)  loginSuccess,required TResult Function( LoginError<T> value)  loginError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LoginState value)  $default,){
 final _that = this;
 switch (_that) {
-case _Initial():
-return initial(_that);case LoginLoading():
-return loginLoading(_that);case LoginSuccess():
-return loginSuccess(_that);case LoginError():
-return loginError(_that);case _:
+case _LoginState():
+return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +132,11 @@ return loginError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( LoginLoading<T> value)?  loginLoading,TResult? Function( LoginSuccess<T> value)?  loginSuccess,TResult? Function( LoginError<T> value)?  loginError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LoginState value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case LoginLoading() when loginLoading != null:
-return loginLoading(_that);case LoginSuccess() when loginSuccess != null:
-return loginSuccess(_that);case LoginError() when loginError != null:
-return loginError(_that);case _:
+case _LoginState() when $default != null:
+return $default(_that);case _:
   return null;
 
 }
@@ -128,13 +153,10 @@ return loginError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  loginLoading,TResult Function( LoginRequestResponse data)?  loginSuccess,TResult Function( String message)?  loginError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial();case LoginLoading() when loginLoading != null:
-return loginLoading();case LoginSuccess() when loginSuccess != null:
-return loginSuccess(_that.data);case LoginError() when loginError != null:
-return loginError(_that.message);case _:
+case _LoginState() when $default != null:
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
   return orElse();
 
 }
@@ -152,13 +174,10 @@ return loginError(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  loginLoading,required TResult Function( LoginRequestResponse data)  loginSuccess,required TResult Function( String message)  loginError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)  $default,) {final _that = this;
 switch (_that) {
-case _Initial():
-return initial();case LoginLoading():
-return loginLoading();case LoginSuccess():
-return loginSuccess(_that.data);case LoginError():
-return loginError(_that.message);case _:
+case _LoginState():
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +194,10 @@ return loginError(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  loginLoading,TResult? Function( LoginRequestResponse data)?  loginSuccess,TResult? Function( String message)?  loginError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)?  $default,) {final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial();case LoginLoading() when loginLoading != null:
-return loginLoading();case LoginSuccess() when loginSuccess != null:
-return loginSuccess(_that.data);case LoginError() when loginError != null:
-return loginError(_that.message);case _:
+case _LoginState() when $default != null:
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
   return null;
 
 }
@@ -192,107 +208,46 @@ return loginError(_that.message);case _:
 /// @nodoc
 
 
-class _Initial<T> implements LoginState<T> {
-  const _Initial();
+class _LoginState implements LoginState {
+  const _LoginState({required this.status, this.errorMessage, this.loginResponse, this.isPassObscure = true});
   
 
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial<T>);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'LoginState<$T>.initial()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class LoginLoading<T> implements LoginState<T> {
-  const LoginLoading();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginLoading<T>);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'LoginState<$T>.loginLoading()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class LoginSuccess<T> implements LoginState<T> {
-  const LoginSuccess(this.data);
-  
-
- final  LoginRequestResponse data;
+@override final  LoginStatus status;
+@override final  String? errorMessage;
+@override final  LoginRequestResponse? loginResponse;
+@override@JsonKey() final  bool isPassObscure;
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$LoginSuccessCopyWith<T, LoginSuccess<T>> get copyWith => _$LoginSuccessCopyWithImpl<T, LoginSuccess<T>>(this, _$identity);
+_$LoginStateCopyWith<_LoginState> get copyWith => __$LoginStateCopyWithImpl<_LoginState>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginSuccess<T>&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,data);
+int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure);
 
 @override
 String toString() {
-  return 'LoginState<$T>.loginSuccess(data: $data)';
+  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $LoginSuccessCopyWith<T,$Res> implements $LoginStateCopyWith<T, $Res> {
-  factory $LoginSuccessCopyWith(LoginSuccess<T> value, $Res Function(LoginSuccess<T>) _then) = _$LoginSuccessCopyWithImpl;
-@useResult
+abstract mixin class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory _$LoginStateCopyWith(_LoginState value, $Res Function(_LoginState) _then) = __$LoginStateCopyWithImpl;
+@override @useResult
 $Res call({
- LoginRequestResponse data
+ LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure
 });
 
 
@@ -300,85 +255,22 @@ $Res call({
 
 }
 /// @nodoc
-class _$LoginSuccessCopyWithImpl<T,$Res>
-    implements $LoginSuccessCopyWith<T, $Res> {
-  _$LoginSuccessCopyWithImpl(this._self, this._then);
+class __$LoginStateCopyWithImpl<$Res>
+    implements _$LoginStateCopyWith<$Res> {
+  __$LoginStateCopyWithImpl(this._self, this._then);
 
-  final LoginSuccess<T> _self;
-  final $Res Function(LoginSuccess<T>) _then;
-
-/// Create a copy of LoginState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(LoginSuccess<T>(
-null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as LoginRequestResponse,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class LoginError<T> implements LoginState<T> {
-  const LoginError(this.message);
-  
-
- final  String message;
+  final _LoginState _self;
+  final $Res Function(_LoginState) _then;
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$LoginErrorCopyWith<T, LoginError<T>> get copyWith => _$LoginErrorCopyWithImpl<T, LoginError<T>>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginError<T>&&(identical(other.message, message) || other.message == message));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,message);
-
-@override
-String toString() {
-  return 'LoginState<$T>.loginError(message: $message)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $LoginErrorCopyWith<T,$Res> implements $LoginStateCopyWith<T, $Res> {
-  factory $LoginErrorCopyWith(LoginError<T> value, $Res Function(LoginError<T>) _then) = _$LoginErrorCopyWithImpl;
-@useResult
-$Res call({
- String message
-});
-
-
-
-
-}
-/// @nodoc
-class _$LoginErrorCopyWithImpl<T,$Res>
-    implements $LoginErrorCopyWith<T, $Res> {
-  _$LoginErrorCopyWithImpl(this._self, this._then);
-
-  final LoginError<T> _self;
-  final $Res Function(LoginError<T>) _then;
-
-/// Create a copy of LoginState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(LoginError<T>(
-null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,}) {
+  return _then(_LoginState(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as LoginStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
+as String?,loginResponse: freezed == loginResponse ? _self.loginResponse : loginResponse // ignore: cast_nullable_to_non_nullable
+as LoginRequestResponse?,isPassObscure: null == isPassObscure ? _self.isPassObscure : isPassObscure // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 

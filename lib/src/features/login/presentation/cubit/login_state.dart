@@ -4,11 +4,22 @@ import '../../data/models/login_request_response.dart';
 
 part 'login_state.freezed.dart';
 
+enum LoginStatus {
+  initial,
+  loginLoading,
+  loginSuccess,
+  loginFailure,
+  togglePassVisibility,
+}
+
 @freezed
-class LoginState<T> with _$LoginState<T> {
-  const factory LoginState.initial() = _Initial;
-  const factory LoginState.loginLoading() = LoginLoading<T>;
-  const factory LoginState.loginSuccess(LoginRequestResponse data) =
-      LoginSuccess<T>;
-  const factory LoginState.loginError(String message) = LoginError<T>;
+abstract class LoginState with _$LoginState {
+  const factory LoginState({
+    required LoginStatus status,
+    String? errorMessage,
+    LoginRequestResponse? loginResponse,
+    @Default(true) bool isPassObscure,
+  }) = _LoginState;
+
+  factory LoginState.initial() => const LoginState(status: LoginStatus.initial);
 }
