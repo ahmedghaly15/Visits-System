@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:visits_system/src/core/helpers/extensions.dart';
 
-import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/locale/locale_keys.dart';
 import '../../../../../core/widgets/adaptive_circular_progress_indicator.dart';
 import '../../../../../core/widgets/primary_button.dart';
 import '../../cubit/login_cubit.dart';
@@ -19,7 +19,7 @@ class LoginButtonBlocConsumer extends StatelessWidget {
       buildWhen: (_, current) => _listenOrBuildWhen(current.status),
       builder: (context, state) => PrimaryButton(
         onPressed: () => context.read<LoginCubit>().validateAndLogin(),
-        text: AppStrings.login,
+        text: LocaleKeys.login,
         child: state.status == LoginStatus.loginLoading
             ? const AdaptiveCircularProgressIndicator()
             : null,

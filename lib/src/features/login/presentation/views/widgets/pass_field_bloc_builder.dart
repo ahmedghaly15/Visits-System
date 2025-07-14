@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/helpers/input_validator.dart';
-import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/locale/locale_keys.dart';
 import '../../../../../core/widgets/custom_data_input.dart';
 import '../../cubit/login_cubit.dart';
 import '../../cubit/login_state.dart';
@@ -18,9 +18,9 @@ class PassFieldBlocBuilder extends StatelessWidget {
         autovalidateMode: state.autovalidateMode,
         controller: context.read<LoginCubit>().passController,
         autofillHints: const [AutofillHints.password],
-        labelText: AppStrings.password,
+        labelText: LocaleKeys.password,
         validator: (value) => InputValidator.validatePasswordField(value),
-        placeholderText: AppStrings.enterPass,
+        placeholderText: LocaleKeys.enterPass,
         obscureText: state.isPassObscure,
         leading: IconButton(
           icon: Icon(

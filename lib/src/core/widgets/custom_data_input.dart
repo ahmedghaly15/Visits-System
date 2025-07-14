@@ -71,12 +71,12 @@ class CustomDataInput extends StatelessWidget {
       label:
           label ??
           Text(
-            labelText ?? '',
+            context.translate(labelText!),
             style: context.shadTextTheme.small.copyWith(color: Colors.white),
           ),
       description: description,
       placeholder: placeholderText != null
-          ? Text(placeholderText!)
+          ? Text(context.translate(placeholderText!))
           : placeholder,
       focusNode: focusNode,
       enabled: enabled,

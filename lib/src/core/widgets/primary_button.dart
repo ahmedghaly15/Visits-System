@@ -32,7 +32,7 @@ class PrimaryButton extends StatelessWidget {
       child:
           child ??
           Text(
-            text!,
+            context.translate(text!),
             style: context.shadTextTheme.p.copyWith(color: Colors.white),
           ),
     );
