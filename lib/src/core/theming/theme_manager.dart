@@ -56,6 +56,7 @@ class ThemeManager {
 
   static ThemeData materialTheme(BuildContext context) =>
       Theme.of(context).copyWith(
+        scaffoldBackgroundColor: ColorManager.scaffoldBg,
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
             padding: EdgeInsets.zero,

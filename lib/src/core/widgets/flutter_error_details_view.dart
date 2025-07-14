@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart' show ElasticIn;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
@@ -29,19 +28,15 @@ class FlutterErrorDetailsView extends StatelessWidget {
                 repeat: false,
               ),
             ),
-            ElasticIn(
-              child: Text(
-                AppStrings.defaultError,
-                style: context.shadTextTheme.h4,
-                textAlign: TextAlign.center,
-              ),
+            Text(
+              AppStrings.defaultError,
+              style: context.shadTextTheme.h4,
+              textAlign: TextAlign.center,
             ),
-            ElasticIn(
-              child: Text(
-                AppStrings.defaultError,
-                style: context.shadTextTheme.p,
-                textAlign: TextAlign.center,
-              ),
+            Text(
+              AppStrings.defaultError,
+              style: context.shadTextTheme.p,
+              textAlign: TextAlign.center,
             ),
           ],
         ),

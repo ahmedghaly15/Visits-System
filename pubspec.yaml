@@ -19,13 +19,9 @@ dependencies:
   shadcn_ui: ^0.27.0
   # To check your internet connection
   internet_connection_checker_plus: ^2.7.2
-  # Beautiful animations
-  animate_do: ^4.2.0
   # Foe dealing wih  APIs
   dio: ^5.8.0+1
   retrofit: ^4.6.0
-  # For SVG rendering
-  flutter_svg: ^2.2.0
   # Used for adapting screen and font sizes
   flutter_screenutil: ^5.9.3
   # Renders After Effects animations natively on Flutter
@@ -54,7 +50,6 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    - assets/svgs/
     - assets/lottie/
   
   fonts:
