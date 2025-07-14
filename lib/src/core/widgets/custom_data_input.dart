@@ -62,6 +62,7 @@ class CustomDataInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ShadInputFormField(
+      textDirection: TextDirection.rtl,
       initialValue: initialValue,
       autovalidateMode: autovalidateMode,
       controller: controller,
@@ -90,7 +91,7 @@ class CustomDataInput extends StatelessWidget {
       autofillHints: autofillHints,
       onSubmitted: onSubmitted,
       onChanged: onChanged,
-      maxLines: null,
+      maxLines: obscureText ? 1 : null,
       minLines: minLines,
       validator: validator,
     );
