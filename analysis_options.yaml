@@ -1,6 +1,8 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  plugins:
+    - bloc_lint
 
   exclude:
     - "**/*.g.dart"
@@ -17,3 +19,12 @@ linter:
     - prefer_const_literals_to_create_immutables
     - prefer_final_locals
     - always_declare_return_types
+
+bloc_lint:
+  rules:
+    - avoid_flutter_imports
+    - avoid_public_bloc_methods
+    - avoid_public_fields
+    - prefer_bloc
+    - prefer_cubit
+    - prefer_void_public_cubit_methods

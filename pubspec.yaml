@@ -30,6 +30,8 @@ dependencies:
   flutter_screenutil: ^5.9.3
   # Renders After Effects animations natively on Flutter
   lottie: ^3.3.1
+  # State management
+  flutter_bloc: ^9.1.1
 
 
 dev_dependencies:
@@ -44,6 +46,8 @@ dev_dependencies:
   json_serializable: ^6.9.5
   # Code generator for Retrofit
   retrofit_generator: ^9.7.0
+  # Official lint rules for development when using the bloc state management
+  bloc_lint: ^0.2.0
 
 flutter:
   uses-material-design: true
