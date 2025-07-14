@@ -50,3 +50,7 @@ windows
 macos 
 linux
 .vscode
+
+keystore.jks.base64
+upload-keystore.jks
+key.properties
