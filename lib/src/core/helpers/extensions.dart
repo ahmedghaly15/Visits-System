@@ -61,3 +61,11 @@ extension ShowDialog<T> on BuildContext {
     );
   }
 }
+
+extension UnfocusKeyboard on BuildContext {
+  void unfocusKeyboard() => FocusScope.of(this).unfocus();
+}
+
+extension StringExtension on String? {
+  bool get isNullOrEmpty => this?.isEmpty ?? true;
+}
