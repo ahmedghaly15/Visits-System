@@ -33,39 +33,21 @@ extension AppNavigator on BuildContext {
   void popTop() => Navigator.of(this, rootNavigator: true).pop();
 }
 
-extension ShowDialog<T> on BuildContext {
-  Future<T?> showDialog({
-    Widget? title,
-    Widget? description,
-    Widget? child,
-    String? titleText,
-    List<Widget>? actions,
-    EdgeInsets? scrollPadding,
-    double gap = 24.0,
-    double radius = 16.0,
-    bool barrierDismissible = true,
-  }) async {
-    return showShadDialog<T?>(
-      context: this,
-      barrierDismissible: barrierDismissible,
-      builder: (_) => ShadDialog(
-        gap: gap.h,
-        scrollPadding: scrollPadding ?? EdgeInsets.symmetric(horizontal: 24.w),
-        radius: BorderRadius.circular(radius.r),
-        removeBorderRadiusWhenTiny: false,
-        title: title ?? (titleText != null ? Text(titleText) : null),
-        description: description,
-        actions: actions ?? [const SizedBox.shrink()],
-        child: child,
-      ),
-    );
-  }
+extension ShowMyToast on BuildContext {
+  void showToast(String message) => ShadToaster.of(this).show(
+    ShadToast.destructive(
+      backgroundColor: Colors.black54,
+      duration: const Duration(seconds: 2),
+      radius: BorderRadius.circular(16.r),
+      description: Text(message),
+    ),
+  );
 }
 
 extension UnfocusKeyboard on BuildContext {
   void unfocusKeyboard() => FocusScope.of(this).unfocus();
 }
 
-extension StringExtension on String? {
+extension NullOrEmptyString on String? {
   bool get isNullOrEmpty => this?.isEmpty ?? true;
 }

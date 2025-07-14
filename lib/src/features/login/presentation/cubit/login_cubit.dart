@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shadcn_ui/shadcn_ui.dart' show ShadFormState;
 import 'package:visits_system/src/core/api/api_request_result.dart';
 
 import '../../data/models/login_request_body.dart';
@@ -11,10 +12,11 @@ class LoginCubit extends Cubit<LoginState> {
 
   LoginCubit(this._repo) : super(LoginState.initial());
 
+  final GlobalKey<ShadFormState> formKey = GlobalKey<ShadFormState>();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
-  void login() async {
+  void _login() async {
     emit(state.copyWith(status: LoginStatus.loginLoading));
     final requestBody = LoginRequestBody(
       username: usernameController.text.trim(),
@@ -40,6 +42,19 @@ class LoginCubit extends Cubit<LoginState> {
       isPassObscure: !state.isPassObscure,
     ),
   );
+
+  void validateAndLogin() {
+    if (formKey.currentState!.validate()) {
+      _login();
+    } else {
+      emit(
+        state.copyWith(
+          status: LoginStatus.enableAutovalidateMode,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+        ),
+      );
+    }
+  }
 
   @override
   Future<void> close() {

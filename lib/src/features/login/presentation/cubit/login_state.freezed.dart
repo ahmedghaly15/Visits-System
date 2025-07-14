@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LoginState {
 
- LoginStatus get status; String? get errorMessage; LoginRequestResponse? get loginResponse; bool get isPassObscure;
+ LoginStatus get status; String? get errorMessage; LoginRequestResponse? get loginResponse; bool get isPassObscure; AutovalidateMode get autovalidateMode;
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $LoginStateCopyWith<LoginState> get copyWith => _$LoginStateCopyWithImpl<LoginSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure)&&(identical(other.autovalidateMode, autovalidateMode) || other.autovalidateMode == autovalidateMode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure);
+int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure,autovalidateMode);
 
 @override
 String toString() {
-  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure)';
+  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure, autovalidateMode: $autovalidateMode)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $LoginStateCopyWith<$Res>  {
   factory $LoginStateCopyWith(LoginState value, $Res Function(LoginState) _then) = _$LoginStateCopyWithImpl;
 @useResult
 $Res call({
- LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure
+ LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure, AutovalidateMode autovalidateMode
 });
 
 
@@ -62,13 +62,14 @@ class _$LoginStateCopyWithImpl<$Res>
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,Object? autovalidateMode = null,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as LoginStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,loginResponse: freezed == loginResponse ? _self.loginResponse : loginResponse // ignore: cast_nullable_to_non_nullable
 as LoginRequestResponse?,isPassObscure: null == isPassObscure ? _self.isPassObscure : isPassObscure // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,autovalidateMode: null == autovalidateMode ? _self.autovalidateMode : autovalidateMode // ignore: cast_nullable_to_non_nullable
+as AutovalidateMode,
   ));
 }
 
@@ -153,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure,  AutovalidateMode autovalidateMode)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LoginState() when $default != null:
-return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure,_that.autovalidateMode);case _:
   return orElse();
 
 }
@@ -174,10 +175,10 @@ return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPass
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure,  AutovalidateMode autovalidateMode)  $default,) {final _that = this;
 switch (_that) {
 case _LoginState():
-return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure,_that.autovalidateMode);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -194,10 +195,10 @@ return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPass
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LoginStatus status,  String? errorMessage,  LoginRequestResponse? loginResponse,  bool isPassObscure,  AutovalidateMode autovalidateMode)?  $default,) {final _that = this;
 switch (_that) {
 case _LoginState() when $default != null:
-return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure);case _:
+return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPassObscure,_that.autovalidateMode);case _:
   return null;
 
 }
@@ -209,13 +210,14 @@ return $default(_that.status,_that.errorMessage,_that.loginResponse,_that.isPass
 
 
 class _LoginState implements LoginState {
-  const _LoginState({required this.status, this.errorMessage, this.loginResponse, this.isPassObscure = true});
+  const _LoginState({required this.status, this.errorMessage, this.loginResponse, this.isPassObscure = true, this.autovalidateMode = AutovalidateMode.disabled});
   
 
 @override final  LoginStatus status;
 @override final  String? errorMessage;
 @override final  LoginRequestResponse? loginResponse;
 @override@JsonKey() final  bool isPassObscure;
+@override@JsonKey() final  AutovalidateMode autovalidateMode;
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
@@ -227,16 +229,16 @@ _$LoginStateCopyWith<_LoginState> get copyWith => __$LoginStateCopyWithImpl<_Log
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage)&&(identical(other.loginResponse, loginResponse) || other.loginResponse == loginResponse)&&(identical(other.isPassObscure, isPassObscure) || other.isPassObscure == isPassObscure)&&(identical(other.autovalidateMode, autovalidateMode) || other.autovalidateMode == autovalidateMode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure);
+int get hashCode => Object.hash(runtimeType,status,errorMessage,loginResponse,isPassObscure,autovalidateMode);
 
 @override
 String toString() {
-  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure)';
+  return 'LoginState(status: $status, errorMessage: $errorMessage, loginResponse: $loginResponse, isPassObscure: $isPassObscure, autovalidateMode: $autovalidateMode)';
 }
 
 
@@ -247,7 +249,7 @@ abstract mixin class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$
   factory _$LoginStateCopyWith(_LoginState value, $Res Function(_LoginState) _then) = __$LoginStateCopyWithImpl;
 @override @useResult
 $Res call({
- LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure
+ LoginStatus status, String? errorMessage, LoginRequestResponse? loginResponse, bool isPassObscure, AutovalidateMode autovalidateMode
 });
 
 
@@ -264,13 +266,14 @@ class __$LoginStateCopyWithImpl<$Res>
 
 /// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? errorMessage = freezed,Object? loginResponse = freezed,Object? isPassObscure = null,Object? autovalidateMode = null,}) {
   return _then(_LoginState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as LoginStatus,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,loginResponse: freezed == loginResponse ? _self.loginResponse : loginResponse // ignore: cast_nullable_to_non_nullable
 as LoginRequestResponse?,isPassObscure: null == isPassObscure ? _self.isPassObscure : isPassObscure // ignore: cast_nullable_to_non_nullable
-as bool,
+as bool,autovalidateMode: null == autovalidateMode ? _self.autovalidateMode : autovalidateMode // ignore: cast_nullable_to_non_nullable
+as AutovalidateMode,
   ));
 }
 
