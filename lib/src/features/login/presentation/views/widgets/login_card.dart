@@ -14,16 +14,21 @@ class LoginCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadCard(
       border: Border.all(color: ColorManager.color595d66, width: 2.w),
-      padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
+      padding: EdgeInsets.symmetric(vertical: 32.h, horizontal: 24.w),
       columnMainAxisSize: MainAxisSize.min,
+      columnCrossAxisAlignment: CrossAxisAlignment.stretch,
       radius: BorderRadius.circular(16.r),
-      trailing: const LoginButtonBlocConsumer(),
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         spacing: 16.h,
         children: [
           Image.asset(Assets.imagesFoeLogoWhiteCcazrDol, fit: BoxFit.cover),
           const LoginForm(),
+          Container(
+            margin: EdgeInsets.only(top: 24.h),
+            child: const LoginButtonBlocConsumer(),
+          ),
         ],
       ),
     );

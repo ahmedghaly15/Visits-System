@@ -15,8 +15,9 @@ class LoginForm extends StatelessWidget {
     return ShadForm(
       key: context.read<LoginCubit>().formKey,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         spacing: 16.h,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: const [UsernameFieldBlocSelector(), PassFieldBlocBuilder()],
       ),
     );

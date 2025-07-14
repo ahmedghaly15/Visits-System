@@ -1,0 +1,20 @@
+import 'package:dio/dio.dart';
+import 'package:get_it/get_it.dart';
+
+import 'src/core/api/dio_client.dart';
+import 'src/features/login/data/api/login_api_service.dart';
+import 'src/features/login/data/repo/login_repo.dart';
+import 'src/features/login/presentation/cubit/login_cubit.dart';
+
+final getIt = GetIt.instance;
+
+void setupDI() {
+  // register external dependencies
+  getIt.registerLazySingleton<Dio>(() => DioClient.getDio());
+  // register api services
+  getIt.registerLazySingleton(() => LoginApiService(getIt.get<Dio>()));
+  // register repositories
+  getIt.registerLazySingleton(() => LoginRepo(getIt.get<LoginApiService>()));
+  // register cubits
+  getIt.registerLazySingleton(() => LoginCubit(getIt.get<LoginRepo>()));
+}

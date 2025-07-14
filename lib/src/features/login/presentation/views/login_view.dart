@@ -12,14 +12,11 @@ class LoginView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),
-          child: CustomScrollView(
+          child: const CustomScrollView(
             slivers: [
-              SliverPadding(
-                padding: EdgeInsets.symmetric(vertical: 16.h),
-                sliver: const SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Center(child: LoginCard()),
-                ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Center(child: LoginCard()),
               ),
             ],
           ),
