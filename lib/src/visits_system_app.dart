@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
 import 'core/router/app_router.dart';
+import 'core/theming/theme_manager.dart';
 import 'core/utils/const_strings.dart';
 
 class VisitsSystemApp extends StatelessWidget {
@@ -16,7 +17,9 @@ class VisitsSystemApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, __) => ShadApp.custom(
         themeMode: ThemeMode.dark,
+        theme: ThemeManager.darkTheme,
         appBuilder: (_) => MaterialApp(
+          theme: ThemeManager.materialTheme(context),
           title: ConstStrings.appTitle,
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,
