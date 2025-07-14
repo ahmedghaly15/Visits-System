@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visits_system/src/core/helpers/extensions.dart';
 
-import '../../features/login/views/login_view.dart';
+import '../../features/login/presentation/views/login_view.dart';
 
 class AppRouter {
   AppRouter._();
