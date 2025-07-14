@@ -9,11 +9,58 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # A code generator for immutable classes
+  freezed_annotation: ^3.1.0
+  # A code generator for JSON serialization
+  json_annotation: ^4.9.0
+  # Prints beautiful logs
+  logger: ^2.6.0
+  # Provides Awesome UI components for Flutter
+  shadcn_ui: ^0.27.0
+  # To check your internet connection
+  internet_connection_checker_plus: ^2.7.2
+  # Beautiful animations
+  animate_do: ^4.2.0
+  # Foe dealing wih  APIs
+  dio: ^5.8.0+1
+  retrofit: ^4.6.0
+  # For SVG rendering
+  flutter_svg: ^2.2.0
+  # Used for adapting screen and font sizes
+  flutter_screenutil: ^5.9.3
+  # Renders After Effects animations natively on Flutter
+  lottie: ^3.3.1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  # A build system for Dart code generation and modular compilation.
+  build_runner: ^2.5.4
+  # A code generator for immutable classes
+  freezed: ^3.1.0
+  # Automatically generate code for converting to and from JSON by annotating Dart classes.
+  json_serializable: ^6.9.5
+  # Code generator for Retrofit
+  retrofit_generator: ^9.7.0
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+    - assets/svgs/
+    - assets/lottie/
+  
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo-VariableFont_slnt,wght.ttf
+      
+
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/src/core/utils/
+  filename: assets.dart
+  field_prefix: null
