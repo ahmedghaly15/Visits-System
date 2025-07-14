@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
+import '../locale/app_localizations.dart';
+
 extension ShadThemeAccess on BuildContext {
   ShadThemeData get shadTheme => ShadTheme.of(this);
   ShadTextTheme get shadTextTheme => shadTheme.textTheme;
@@ -50,4 +52,11 @@ extension UnfocusKeyboard on BuildContext {
 
 extension NullOrEmptyString on String? {
   bool get isNullOrEmpty => this?.isEmpty ?? true;
+}
+
+extension Translate on BuildContext {
+  String translate(String key) {
+    return AppLocalizations.of(this)!.translate(key) ??
+        'Key Not found to translate';
+  }
 }
