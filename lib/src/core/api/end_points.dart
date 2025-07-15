@@ -3,5 +3,7 @@ class EndPoints {
 
   static const String baseUrl = 'http://172.16.7.61:5555/api/';
   static const String users = '${baseUrl}Users/';
-  static const String login = '${users}login/';
+  static const String login = '${users}login';
+  static const String visits = '${baseUrl}Visits/';
+  static const String getAllVisits = '${visits}getAllVisits';
 }

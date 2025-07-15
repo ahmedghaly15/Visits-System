@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_api_service.dart';
+part of 'home_api_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'login_api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
-class _LoginApiService implements LoginApiService {
-  _LoginApiService(this._dio, {this.baseUrl, this.errorLogger}) {
+class _HomeApiService implements HomeApiService {
+  _HomeApiService(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'http://172.16.7.61:5555/api/';
   }
 
@@ -20,26 +20,25 @@ class _LoginApiService implements LoginApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<LoginRequestResponse> login(LoginRequestBody loginRequestBody) async {
+  Future<FetchVisitsResponse> fetchAllVisits(int cardId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(loginRequestBody.toJson());
-    final _options = _setStreamType<LoginRequestResponse>(
-      Options(method: 'POST', headers: _headers, extra: _extra)
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<FetchVisitsResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'http://172.16.7.61:5555/api/Users/login',
+            'http://172.16.7.61:5555/api/Visits/getAllVisits${cardId}',
             queryParameters: queryParameters,
             data: _data,
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late LoginRequestResponse _value;
+    late FetchVisitsResponse _value;
     try {
-      _value = LoginRequestResponse.fromJson(_result.data!);
+      _value = FetchVisitsResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
