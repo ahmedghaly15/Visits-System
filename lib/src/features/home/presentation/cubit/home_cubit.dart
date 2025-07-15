@@ -8,19 +8,28 @@ import 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo _repo;
 
-  HomeCubit(this._repo) : super(const HomeState.initial());
+  HomeCubit(this._repo) : super(HomeState.initial());
 
   final cardIdController = TextEditingController();
 
   void fetchAllVisits() async {
-    emit(const HomeState.fetchAllVisitsLoading());
+    emit(state.copyWith(status: HomeStatus.fetchAllVisitsLoading));
     final result = await _repo.fetchAllVisits(
       int.parse(cardIdController.text.trim()),
     );
     result.when(
-      success: (data) => emit(HomeState.fetchAllVisitsSuccess(data)),
-      failure: (failure) =>
-          emit(HomeState.fetchAllVisitsFailure(failure.message)),
+      success: (data) => emit(
+        state.copyWith(
+          status: HomeStatus.fetchAllVisitsSuccess,
+          fetchAllVisitsResponse: data,
+        ),
+      ),
+      failure: (failure) => emit(
+        state.copyWith(
+          status: HomeStatus.fetchAllVisitsFailure,
+          error: failure.message,
+        ),
+      ),
     );
   }
 

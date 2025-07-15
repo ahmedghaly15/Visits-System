@@ -14,30 +14,63 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$HomeState<T> {
 
-
+ HomeStatus get status; String? get error; FetchVisitsResponse? get fetchAllVisitsResponse;
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$HomeStateCopyWith<T, HomeState<T>> get copyWith => _$HomeStateCopyWithImpl<T, HomeState<T>>(this as HomeState<T>, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState<T>);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is HomeState<T>&&(identical(other.status, status) || other.status == status)&&(identical(other.error, error) || other.error == error)&&(identical(other.fetchAllVisitsResponse, fetchAllVisitsResponse) || other.fetchAllVisitsResponse == fetchAllVisitsResponse));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,status,error,fetchAllVisitsResponse);
 
 @override
 String toString() {
-  return 'HomeState<$T>()';
+  return 'HomeState<$T>(status: $status, error: $error, fetchAllVisitsResponse: $fetchAllVisitsResponse)';
 }
 
 
 }
 
 /// @nodoc
-class $HomeStateCopyWith<T,$Res>  {
-$HomeStateCopyWith(HomeState<T> _, $Res Function(HomeState<T>) __);
+abstract mixin class $HomeStateCopyWith<T,$Res>  {
+  factory $HomeStateCopyWith(HomeState<T> value, $Res Function(HomeState<T>) _then) = _$HomeStateCopyWithImpl;
+@useResult
+$Res call({
+ HomeStatus status, String? error, FetchVisitsResponse? fetchAllVisitsResponse
+});
+
+
+
+
+}
+/// @nodoc
+class _$HomeStateCopyWithImpl<T,$Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  _$HomeStateCopyWithImpl(this._self, this._then);
+
+  final HomeState<T> _self;
+  final $Res Function(HomeState<T>) _then;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? error = freezed,Object? fetchAllVisitsResponse = freezed,}) {
+  return _then(_self.copyWith(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as HomeStatus,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String?,fetchAllVisitsResponse: freezed == fetchAllVisitsResponse ? _self.fetchAllVisitsResponse : fetchAllVisitsResponse // ignore: cast_nullable_to_non_nullable
+as FetchVisitsResponse?,
+  ));
+}
+
 }
 
 
@@ -55,14 +88,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial<T> value)?  initial,TResult Function( FetchAllVisitsLoading<T> value)?  fetchAllVisitsLoading,TResult Function( FetchAllVisitsSuccess<T> value)?  fetchAllVisitsSuccess,TResult Function( FetchAllVisitsFailure<T> value)?  fetchAllVisitsFailure,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _HomeState<T> value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case FetchAllVisitsLoading() when fetchAllVisitsLoading != null:
-return fetchAllVisitsLoading(_that);case FetchAllVisitsSuccess() when fetchAllVisitsSuccess != null:
-return fetchAllVisitsSuccess(_that);case FetchAllVisitsFailure() when fetchAllVisitsFailure != null:
-return fetchAllVisitsFailure(_that);case _:
+case _HomeState() when $default != null:
+return $default(_that);case _:
   return orElse();
 
 }
@@ -80,14 +110,11 @@ return fetchAllVisitsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial<T> value)  initial,required TResult Function( FetchAllVisitsLoading<T> value)  fetchAllVisitsLoading,required TResult Function( FetchAllVisitsSuccess<T> value)  fetchAllVisitsSuccess,required TResult Function( FetchAllVisitsFailure<T> value)  fetchAllVisitsFailure,}){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _HomeState<T> value)  $default,){
 final _that = this;
 switch (_that) {
-case _Initial():
-return initial(_that);case FetchAllVisitsLoading():
-return fetchAllVisitsLoading(_that);case FetchAllVisitsSuccess():
-return fetchAllVisitsSuccess(_that);case FetchAllVisitsFailure():
-return fetchAllVisitsFailure(_that);case _:
+case _HomeState():
+return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +131,11 @@ return fetchAllVisitsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial<T> value)?  initial,TResult? Function( FetchAllVisitsLoading<T> value)?  fetchAllVisitsLoading,TResult? Function( FetchAllVisitsSuccess<T> value)?  fetchAllVisitsSuccess,TResult? Function( FetchAllVisitsFailure<T> value)?  fetchAllVisitsFailure,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _HomeState<T> value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial(_that);case FetchAllVisitsLoading() when fetchAllVisitsLoading != null:
-return fetchAllVisitsLoading(_that);case FetchAllVisitsSuccess() when fetchAllVisitsSuccess != null:
-return fetchAllVisitsSuccess(_that);case FetchAllVisitsFailure() when fetchAllVisitsFailure != null:
-return fetchAllVisitsFailure(_that);case _:
+case _HomeState() when $default != null:
+return $default(_that);case _:
   return null;
 
 }
@@ -128,13 +152,10 @@ return fetchAllVisitsFailure(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  fetchAllVisitsLoading,TResult Function( FetchVisitsResponse data)?  fetchAllVisitsSuccess,TResult Function( String message)?  fetchAllVisitsFailure,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( HomeStatus status,  String? error,  FetchVisitsResponse? fetchAllVisitsResponse)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial();case FetchAllVisitsLoading() when fetchAllVisitsLoading != null:
-return fetchAllVisitsLoading();case FetchAllVisitsSuccess() when fetchAllVisitsSuccess != null:
-return fetchAllVisitsSuccess(_that.data);case FetchAllVisitsFailure() when fetchAllVisitsFailure != null:
-return fetchAllVisitsFailure(_that.message);case _:
+case _HomeState() when $default != null:
+return $default(_that.status,_that.error,_that.fetchAllVisitsResponse);case _:
   return orElse();
 
 }
@@ -152,13 +173,10 @@ return fetchAllVisitsFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  fetchAllVisitsLoading,required TResult Function( FetchVisitsResponse data)  fetchAllVisitsSuccess,required TResult Function( String message)  fetchAllVisitsFailure,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( HomeStatus status,  String? error,  FetchVisitsResponse? fetchAllVisitsResponse)  $default,) {final _that = this;
 switch (_that) {
-case _Initial():
-return initial();case FetchAllVisitsLoading():
-return fetchAllVisitsLoading();case FetchAllVisitsSuccess():
-return fetchAllVisitsSuccess(_that.data);case FetchAllVisitsFailure():
-return fetchAllVisitsFailure(_that.message);case _:
+case _HomeState():
+return $default(_that.status,_that.error,_that.fetchAllVisitsResponse);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +193,10 @@ return fetchAllVisitsFailure(_that.message);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  fetchAllVisitsLoading,TResult? Function( FetchVisitsResponse data)?  fetchAllVisitsSuccess,TResult? Function( String message)?  fetchAllVisitsFailure,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( HomeStatus status,  String? error,  FetchVisitsResponse? fetchAllVisitsResponse)?  $default,) {final _that = this;
 switch (_that) {
-case _Initial() when initial != null:
-return initial();case FetchAllVisitsLoading() when fetchAllVisitsLoading != null:
-return fetchAllVisitsLoading();case FetchAllVisitsSuccess() when fetchAllVisitsSuccess != null:
-return fetchAllVisitsSuccess(_that.data);case FetchAllVisitsFailure() when fetchAllVisitsFailure != null:
-return fetchAllVisitsFailure(_that.message);case _:
+case _HomeState() when $default != null:
+return $default(_that.status,_that.error,_that.fetchAllVisitsResponse);case _:
   return null;
 
 }
@@ -192,107 +207,45 @@ return fetchAllVisitsFailure(_that.message);case _:
 /// @nodoc
 
 
-class _Initial<T> implements HomeState<T> {
-  const _Initial();
+class _HomeState<T> implements HomeState<T> {
+  const _HomeState({required this.status, this.error, this.fetchAllVisitsResponse});
   
 
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initial<T>);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'HomeState<$T>.initial()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class FetchAllVisitsLoading<T> implements HomeState<T> {
-  const FetchAllVisitsLoading();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FetchAllVisitsLoading<T>);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'HomeState<$T>.fetchAllVisitsLoading()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class FetchAllVisitsSuccess<T> implements HomeState<T> {
-  const FetchAllVisitsSuccess(this.data);
-  
-
- final  FetchVisitsResponse data;
+@override final  HomeStatus status;
+@override final  String? error;
+@override final  FetchVisitsResponse? fetchAllVisitsResponse;
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$FetchAllVisitsSuccessCopyWith<T, FetchAllVisitsSuccess<T>> get copyWith => _$FetchAllVisitsSuccessCopyWithImpl<T, FetchAllVisitsSuccess<T>>(this, _$identity);
+_$HomeStateCopyWith<T, _HomeState<T>> get copyWith => __$HomeStateCopyWithImpl<T, _HomeState<T>>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FetchAllVisitsSuccess<T>&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _HomeState<T>&&(identical(other.status, status) || other.status == status)&&(identical(other.error, error) || other.error == error)&&(identical(other.fetchAllVisitsResponse, fetchAllVisitsResponse) || other.fetchAllVisitsResponse == fetchAllVisitsResponse));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,data);
+int get hashCode => Object.hash(runtimeType,status,error,fetchAllVisitsResponse);
 
 @override
 String toString() {
-  return 'HomeState<$T>.fetchAllVisitsSuccess(data: $data)';
+  return 'HomeState<$T>(status: $status, error: $error, fetchAllVisitsResponse: $fetchAllVisitsResponse)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $FetchAllVisitsSuccessCopyWith<T,$Res> implements $HomeStateCopyWith<T, $Res> {
-  factory $FetchAllVisitsSuccessCopyWith(FetchAllVisitsSuccess<T> value, $Res Function(FetchAllVisitsSuccess<T>) _then) = _$FetchAllVisitsSuccessCopyWithImpl;
-@useResult
+abstract mixin class _$HomeStateCopyWith<T,$Res> implements $HomeStateCopyWith<T, $Res> {
+  factory _$HomeStateCopyWith(_HomeState<T> value, $Res Function(_HomeState<T>) _then) = __$HomeStateCopyWithImpl;
+@override @useResult
 $Res call({
- FetchVisitsResponse data
+ HomeStatus status, String? error, FetchVisitsResponse? fetchAllVisitsResponse
 });
 
 
@@ -300,85 +253,21 @@ $Res call({
 
 }
 /// @nodoc
-class _$FetchAllVisitsSuccessCopyWithImpl<T,$Res>
-    implements $FetchAllVisitsSuccessCopyWith<T, $Res> {
-  _$FetchAllVisitsSuccessCopyWithImpl(this._self, this._then);
+class __$HomeStateCopyWithImpl<T,$Res>
+    implements _$HomeStateCopyWith<T, $Res> {
+  __$HomeStateCopyWithImpl(this._self, this._then);
 
-  final FetchAllVisitsSuccess<T> _self;
-  final $Res Function(FetchAllVisitsSuccess<T>) _then;
-
-/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
-  return _then(FetchAllVisitsSuccess<T>(
-null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as FetchVisitsResponse,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class FetchAllVisitsFailure<T> implements HomeState<T> {
-  const FetchAllVisitsFailure(this.message);
-  
-
- final  String message;
+  final _HomeState<T> _self;
+  final $Res Function(_HomeState<T>) _then;
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$FetchAllVisitsFailureCopyWith<T, FetchAllVisitsFailure<T>> get copyWith => _$FetchAllVisitsFailureCopyWithImpl<T, FetchAllVisitsFailure<T>>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FetchAllVisitsFailure<T>&&(identical(other.message, message) || other.message == message));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,message);
-
-@override
-String toString() {
-  return 'HomeState<$T>.fetchAllVisitsFailure(message: $message)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class $FetchAllVisitsFailureCopyWith<T,$Res> implements $HomeStateCopyWith<T, $Res> {
-  factory $FetchAllVisitsFailureCopyWith(FetchAllVisitsFailure<T> value, $Res Function(FetchAllVisitsFailure<T>) _then) = _$FetchAllVisitsFailureCopyWithImpl;
-@useResult
-$Res call({
- String message
-});
-
-
-
-
-}
-/// @nodoc
-class _$FetchAllVisitsFailureCopyWithImpl<T,$Res>
-    implements $FetchAllVisitsFailureCopyWith<T, $Res> {
-  _$FetchAllVisitsFailureCopyWithImpl(this._self, this._then);
-
-  final FetchAllVisitsFailure<T> _self;
-  final $Res Function(FetchAllVisitsFailure<T>) _then;
-
-/// Create a copy of HomeState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? message = null,}) {
-  return _then(FetchAllVisitsFailure<T>(
-null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String,
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? error = freezed,Object? fetchAllVisitsResponse = freezed,}) {
+  return _then(_HomeState<T>(
+status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as HomeStatus,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as String?,fetchAllVisitsResponse: freezed == fetchAllVisitsResponse ? _self.fetchAllVisitsResponse : fetchAllVisitsResponse // ignore: cast_nullable_to_non_nullable
+as FetchVisitsResponse?,
   ));
 }
 

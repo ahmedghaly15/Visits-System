@@ -4,12 +4,20 @@ import '../../data/models/fetch_visits_response.dart';
 
 part 'home_state.freezed.dart';
 
+enum HomeStatus {
+  initial,
+  fetchAllVisitsLoading,
+  fetchAllVisitsSuccess,
+  fetchAllVisitsFailure,
+}
+
 @freezed
 abstract class HomeState<T> with _$HomeState {
-  const factory HomeState.initial() = _Initial<T>;
-  const factory HomeState.fetchAllVisitsLoading() = FetchAllVisitsLoading<T>;
-  const factory HomeState.fetchAllVisitsSuccess(FetchVisitsResponse data) =
-      FetchAllVisitsSuccess<T>;
-  const factory HomeState.fetchAllVisitsFailure(String message) =
-      FetchAllVisitsFailure<T>;
+  const factory HomeState({
+    required HomeStatus status,
+    String? error,
+    FetchVisitsResponse? fetchAllVisitsResponse,
+  }) = _HomeState;
+
+  factory HomeState.initial() => const HomeState(status: HomeStatus.initial);
 }
