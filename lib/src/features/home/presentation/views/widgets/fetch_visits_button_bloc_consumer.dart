@@ -14,13 +14,13 @@ class FetchVisitsButtonBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<HomeCubit, HomeState>(
-      listenWhen: (_, current) => _listenWhen(current),
+      listenWhen: (_, current) => _listenWhen(current.status),
       listener: (context, state) => _listener(state, context),
-      buildWhen: (_, current) => _buildWhen(current),
+      buildWhen: (_, current) => _buildWhen(current.status),
       builder: (context, state) => PrimaryButton(
         onPressed: () => context.read<HomeCubit>().fetchAllVisits(),
         text: LocaleKeys.fetchVisits,
-        child: state is FetchAllVisitsLoading
+        child: state.status == HomeStatus.fetchAllVisitsLoading
             ? const AdaptiveCircularProgressIndicator()
             : null,
       ),
@@ -28,16 +28,20 @@ class FetchVisitsButtonBlocConsumer extends StatelessWidget {
   }
 
   void _listener(HomeState<dynamic> state, BuildContext context) {
-    state.whenOrNull(
-      fetchAllVisitsFailure: (message) => context.showToast(message),
-    );
+    switch (state.status) {
+      case HomeStatus.fetchAllVisitsFailure:
+        context.showToast(state.error!);
+        break;
+      default:
+        break;
+    }
   }
 
-  bool _listenWhen(HomeState<dynamic> current) =>
-      current is FetchAllVisitsFailure;
+  bool _listenWhen(HomeStatus status) =>
+      status == HomeStatus.fetchAllVisitsFailure;
 
-  bool _buildWhen(HomeState<dynamic> current) =>
-      current is FetchAllVisitsLoading ||
-      current is FetchAllVisitsFailure ||
-      current is FetchAllVisitsSuccess;
+  bool _buildWhen(HomeStatus status) =>
+      status == HomeStatus.fetchAllVisitsLoading ||
+      status == HomeStatus.fetchAllVisitsSuccess ||
+      status == HomeStatus.fetchAllVisitsFailure;
 }
