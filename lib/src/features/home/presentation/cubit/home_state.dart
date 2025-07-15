@@ -9,10 +9,11 @@ enum HomeStatus {
   fetchAllVisitsLoading,
   fetchAllVisitsSuccess,
   fetchAllVisitsFailure,
+  retryAnotherCardId,
 }
 
 @freezed
-abstract class HomeState<T> with _$HomeState {
+abstract class HomeState with _$HomeState {
   const factory HomeState({
     required HomeStatus status,
     String? error,

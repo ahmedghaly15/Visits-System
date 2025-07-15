@@ -33,6 +33,15 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
+  void retryAnotherCard() {
+    emit(
+      state.copyWith(
+        status: HomeStatus.retryAnotherCardId,
+        fetchAllVisitsResponse: null,
+      ),
+    );
+  }
+
   @override
   Future<void> close() {
     cardIdController.dispose();
