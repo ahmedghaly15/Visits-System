@@ -20,34 +20,22 @@ class CardVisitsSliverGridBlocSelector extends StatelessWidget {
       builder: (context, cardData) => cardData != null
           ? SliverGrid.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 1,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 16,
               ),
-              itemBuilder: (_, index) => MaterialButton(
-                onPressed: () {
-                  context.pushNamed(
-                    Routes.cardVisitors,
-                    arguments: cardData.visits,
-                  );
-                },
-                padding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16.r),
+              itemBuilder: (_, index) => GestureDetector(
+                onTap: () => context.pushNamed(
+                  Routes.cardVisitors,
+                  arguments: cardData.visits[index].visitors,
                 ),
                 child: ShadCard(
                   radius: BorderRadius.circular(16.r),
                   title: Text(
-                    cardData.visits[index].employeeNameInVisit,
+                    cardData.visits[index].employeeNameInVisit ?? 'A7a ya3am',
                     style: context.shadTextTheme.h4,
                   ),
-                  columnCrossAxisAlignment: CrossAxisAlignment.start,
-                  columnMainAxisSize: MainAxisSize.min,
-                  padding: EdgeInsets.symmetric(
-                    vertical: 16.h,
-                    horizontal: 24.w,
-                  ),
-                  footer: Text(
-                    'Number of visits: ${cardData.visits[index].visitors.length}',
-                  ),
+
                   child: VisitCardBody(visit: cardData.visits[index]),
                 ),
               ),
