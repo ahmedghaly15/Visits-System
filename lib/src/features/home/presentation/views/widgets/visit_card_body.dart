@@ -33,7 +33,6 @@ class VisitCardBody extends StatelessWidget {
             ),
           ],
         ),
-
         Row(
           spacing: 8.w,
           children: [

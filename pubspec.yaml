@@ -17,8 +17,6 @@ dependencies:
   logger: ^2.6.0
   # Provides Awesome UI components for Flutter
   shadcn_ui: ^0.27.0
-  # To check your internet connection
-  internet_connection_checker_plus: ^2.7.2
   # Foe dealing wih  APIs
   dio: ^5.8.0+1
   retrofit: ^4.6.0

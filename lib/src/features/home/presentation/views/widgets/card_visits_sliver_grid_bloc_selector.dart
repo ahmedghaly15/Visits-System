@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 import 'package:visits_system/src/core/helpers/extensions.dart';
 
+import '../../../../../core/router/routes.dart';
 import '../../../data/models/fetch_visits_response.dart';
 import '../../cubit/home_cubit.dart';
 import '../../cubit/home_state.dart';
@@ -23,7 +24,10 @@ class CardVisitsSliverGridBlocSelector extends StatelessWidget {
               ),
               itemBuilder: (_, index) => MaterialButton(
                 onPressed: () {
-                  // TPDP: move to visitors screen
+                  context.pushNamed(
+                    Routes.cardVisitors,
+                    arguments: cardData.visits,
+                  );
                 },
                 padding: EdgeInsets.zero,
                 shape: RoundedRectangleBorder(

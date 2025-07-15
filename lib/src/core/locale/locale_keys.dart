@@ -19,4 +19,6 @@ class LocaleKeys {
   static const String visitType = 'visitType';
   static const String reasonForRejection = 'reasonForRejection';
   static const String visitors = 'visitors';
+  static const String phone = 'phone';
+  static const String nid = 'nid';
 }

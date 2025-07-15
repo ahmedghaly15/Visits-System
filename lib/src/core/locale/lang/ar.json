@@ -16,5 +16,7 @@
     "isCreatedByDept": "هل تم انشائها من قبل القسم؟",
     "visitType": "نوع الزيارة",
     "reasonForRejection": "سبب الرفض",
-    "visitors": "الزائرين"
+    "visitors": "الزائرين",
+    "phone": "رقم الهاتف",
+    "nid": "الرقم القومي"
 }
