@@ -27,7 +27,7 @@ class FetchVisitsButtonBlocConsumer extends StatelessWidget {
     );
   }
 
-  void _listener(HomeState<dynamic> state, BuildContext context) {
+  void _listener(HomeState state, BuildContext context) {
     switch (state.status) {
       case HomeStatus.fetchAllVisitsFailure:
         context.showToast(state.error!);

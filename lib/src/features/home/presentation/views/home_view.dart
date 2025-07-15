@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:visits_system/src/features/home/presentation/cubit/home_cubit.dart';
 
-import '../../../../core/locale/locale_keys.dart';
-import '../../../../core/widgets/custom_data_input.dart';
+import '../../../../core/widgets/main_footer.dart';
+import 'widgets/card_id_field_and_fetch_visits_button_bloc_selector.dart';
 import 'widgets/card_visits_sliver_grid_bloc_selector.dart';
-import 'widgets/fetch_visits_button_bloc_consumer.dart';
+import 'widgets/enter_another_card_num_button.dart';
+import 'widgets/logout_icon_button.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -16,27 +15,24 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.w),
+          padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
           child: CustomScrollView(
             slivers: [
-              SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
-                  spacing: 24.h,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    CustomDataInput(
-                      controller: context.read<HomeCubit>().cardIdController,
-                      labelText: LocaleKeys.cardId,
-                      placeholderText: LocaleKeys.enterCardId,
-                      keyboardType: TextInputType.number,
-                    ),
-                    const FetchVisitsButtonBlocConsumer(),
-                  ],
+              const SliverAppBar(actions: [LogoutIconButton()]),
+              const CardIdFieldAndFetchVisitsButtonBlocSelector(),
+              const CardVisitsSliverGridBlocSelector(),
+              SliverToBoxAdapter(
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 24.h),
+                  child: const EnterAnotherCardNumButton(),
                 ),
               ),
-              const CardVisitsSliverGridBlocSelector(),
+              SliverToBoxAdapter(
+                child: Container(
+                  margin: EdgeInsets.symmetric(vertical: 16.h),
+                  child: const MainFooter(),
+                ),
+              ),
             ],
           ),
         ),

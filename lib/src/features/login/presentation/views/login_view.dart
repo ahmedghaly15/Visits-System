@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/widgets/main_footer.dart';
 import 'widgets/login_card.dart';
 
 class LoginView extends StatelessWidget {
@@ -16,7 +17,16 @@ class LoginView extends StatelessWidget {
             slivers: [
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Center(child: LoginCard()),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Spacer(),
+                    LoginCard(),
+                    Spacer(flex: 2),
+                    MainFooter(),
+                    Spacer(),
+                  ],
+                ),
               ),
             ],
           ),
