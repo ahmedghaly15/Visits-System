@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:visits_system/src/core/helpers/extensions.dart';
 
 import '../../../../core/locale/locale_keys.dart';
+import '../../../../core/widgets/main_footer.dart';
 import '../../../home/data/models/fetch_visits_response.dart';
 import 'widgets/visitor_item.dart';
 
@@ -30,6 +31,18 @@ class CardVisitorsView extends StatelessWidget {
                     VisitorItem(visitor: visitors[index]),
                 separatorBuilder: (_, __) => SizedBox(height: 16.h),
                 itemCount: visitors.length,
+              ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  children: [
+                    const Spacer(),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 16.h),
+                      child: const MainFooter(),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
