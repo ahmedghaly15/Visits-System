@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/locale/locale_keys.dart';
 import '../../../../../core/widgets/custom_data_input.dart';
+import '../../../../../core/widgets/main_footer.dart';
 import '../../../data/models/fetch_visits_response.dart';
 import '../../cubit/home_cubit.dart';
 import '../../cubit/home_state.dart';
@@ -25,6 +26,7 @@ class CardIdFieldAndFetchVisitsButtonBlocSelector extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  const Spacer(),
                   CustomDataInput(
                     controller: context.read<HomeCubit>().cardIdController,
                     labelText: LocaleKeys.cardId,
@@ -32,6 +34,11 @@ class CardIdFieldAndFetchVisitsButtonBlocSelector extends StatelessWidget {
                     keyboardType: TextInputType.number,
                   ),
                   const FetchVisitsButtonBlocConsumer(),
+                  const Spacer(),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 16.h),
+                    child: const MainFooter(),
+                  ),
                 ],
               ),
             )
