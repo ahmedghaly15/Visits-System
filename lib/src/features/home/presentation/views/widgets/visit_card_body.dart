@@ -36,8 +36,8 @@ class VisitCardBody extends StatelessWidget {
             Expanded(
               child: CustomDataInput(
                 enabled: false,
-                initialValue: visit.visitStateFromPolice ?? '58555',
-                labelText: LocaleKeys.visitStateFromPolice,
+                initialValue: visit.visitStateFromDept ?? '58555',
+                labelText: LocaleKeys.visitStateFromDept,
               ),
             ),
           ],
@@ -64,7 +64,7 @@ class VisitCardBody extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 24.h),
           child: Text(
-            'Number of visitors: ${(visit.visitors?.length) ?? 25}',
+            'عدد الزائرين: ${(visit.visitors?.length) ?? 25}',
             style: context.shadTextTheme.p,
           ),
         ),

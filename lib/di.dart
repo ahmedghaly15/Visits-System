@@ -28,6 +28,6 @@ void setupDI() {
   );
 
   // register cubits
-  getIt.registerLazySingleton(() => LoginCubit(getIt.get<LoginRepo>()));
-  getIt.registerLazySingleton(() => HomeCubit(getIt.get<HomeRepo>()));
+  getIt.registerFactory(() => LoginCubit(getIt.get<LoginRepo>()));
+  getIt.registerFactory(() => HomeCubit(getIt.get<HomeRepo>()));
 }

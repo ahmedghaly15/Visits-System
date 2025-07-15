@@ -17,8 +17,9 @@ class EnterAnotherCardNumButton extends StatelessWidget {
       builder: (context, fetchAllVisitsResponse) =>
           fetchAllVisitsResponse != null
           ? PrimaryButton(
+              expands: true,
               onPressed: () => context.read<HomeCubit>().retryAnotherCard(),
-              text: LocaleKeys.retryAnotherCardId,
+              text: LocaleKeys.backToHome,
             )
           : const SizedBox.shrink(),
     );
