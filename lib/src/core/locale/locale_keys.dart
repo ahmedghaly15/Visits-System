@@ -10,4 +10,13 @@ class LocaleKeys {
   static const String cardId = 'cardId';
   static const String enterCardId = 'enterCardId';
   static const String fetchVisits = 'fetchVisits';
+  static const String visitDate = 'visitDate';
+  static const String reason = 'reason';
+  static const String notes = 'notes';
+  static const String visitStateFromPolice = 'visitStateFromPolice';
+  static const String visitStateFromDept = 'visitStateFromDept';
+  static const String isCreatedByDept = 'isCreatedByDept';
+  static const String visitType = 'visitType';
+  static const String reasonForRejection = 'reasonForRejection';
+  static const String visitors = 'visitors';
 }
