@@ -22,14 +22,14 @@ class _HomeApiService implements HomeApiService {
   @override
   Future<FetchVisitsResponse> fetchAllVisits(int cardId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'CardId': cardId};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<FetchVisitsResponse>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'http://172.16.7.61:5555/api/Visits/getAllVisits${cardId}',
+            'http://172.16.7.61:5555/api/Visit/getAllVisits',
             queryParameters: queryParameters,
             data: _data,
           )

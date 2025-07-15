@@ -24,8 +24,8 @@ class FetchVisitsResponse {
 
 @JsonSerializable(explicitToJson: true)
 class FetchVisitsResponseItem {
-  final int id, floorId;
-  final String visitDate,
+  final int? id, floorId;
+  final String? visitDate,
       secondaryDate,
       primaryDate,
       employeeNameInVisit,
@@ -35,25 +35,25 @@ class FetchVisitsResponseItem {
       visitStateFromDept,
       visitType,
       reasonforRejection;
-  final bool isPraimaryDateAccepted, isCreatedByDept;
-  final List<Visitor> visitors;
+  final bool? isPraimaryDateAccepted, isCreatedByDept;
+  final List<Visitor>? visitors;
 
   FetchVisitsResponseItem({
-    required this.id,
-    required this.floorId,
-    required this.visitDate,
-    required this.secondaryDate,
-    required this.primaryDate,
-    required this.employeeNameInVisit,
-    required this.reason,
-    required this.notes,
-    required this.visitStateFromPolice,
-    required this.visitStateFromDept,
-    required this.visitType,
-    required this.reasonforRejection,
-    required this.isPraimaryDateAccepted,
-    required this.isCreatedByDept,
-    required this.visitors,
+    this.id,
+    this.floorId,
+    this.visitDate,
+    this.secondaryDate,
+    this.primaryDate,
+    this.employeeNameInVisit,
+    this.reason,
+    this.notes,
+    this.visitStateFromPolice,
+    this.visitStateFromDept,
+    this.visitType,
+    this.reasonforRejection,
+    this.isPraimaryDateAccepted,
+    this.isCreatedByDept,
+    this.visitors,
   });
 
   factory FetchVisitsResponseItem.fromJson(Map<String, dynamic> json) =>
@@ -63,22 +63,22 @@ class FetchVisitsResponseItem {
 
 @JsonSerializable()
 class Visitor {
-  final int id, cardId;
-  final String name, phone, nid, entryTime, leaveTime;
+  final int? id, cardId;
+  final String? name, phone, nid, entryTime, leaveTime;
   @JsonKey(name: 'niD_PicPath')
-  final String nidPicPath;
-  final bool isBloacked;
+  final String? nidPicPath;
+  final bool? isBloacked;
 
   Visitor({
-    required this.id,
-    required this.cardId,
-    required this.name,
-    required this.phone,
-    required this.nid,
-    required this.entryTime,
-    required this.leaveTime,
-    required this.nidPicPath,
-    required this.isBloacked,
+    this.id,
+    this.cardId,
+    this.name,
+    this.phone,
+    this.nid,
+    this.entryTime,
+    this.leaveTime,
+    this.nidPicPath,
+    this.isBloacked,
   });
 
   factory Visitor.fromJson(Map<String, dynamic> json) =>

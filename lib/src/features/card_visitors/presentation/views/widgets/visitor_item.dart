@@ -16,7 +16,7 @@ class VisitorItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShadCard(
       radius: BorderRadius.circular(16.r),
-      title: Text(visitor.name, style: context.shadTextTheme.h4),
+      title: Text(visitor.name ?? 'A7a ya3am', style: context.shadTextTheme.h4),
       columnCrossAxisAlignment: CrossAxisAlignment.start,
       columnMainAxisSize: MainAxisSize.min,
       padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 24.w),

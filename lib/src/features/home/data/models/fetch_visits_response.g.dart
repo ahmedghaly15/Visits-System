@@ -29,22 +29,22 @@ Map<String, dynamic> _$FetchVisitsResponseToJson(
 FetchVisitsResponseItem _$FetchVisitsResponseItemFromJson(
   Map<String, dynamic> json,
 ) => FetchVisitsResponseItem(
-  id: (json['id'] as num).toInt(),
-  floorId: (json['floorId'] as num).toInt(),
-  visitDate: json['visitDate'] as String,
-  secondaryDate: json['secondaryDate'] as String,
-  primaryDate: json['primaryDate'] as String,
-  employeeNameInVisit: json['employeeNameInVisit'] as String,
-  reason: json['reason'] as String,
-  notes: json['notes'] as String,
-  visitStateFromPolice: json['visitStateFromPolice'] as String,
-  visitStateFromDept: json['visitStateFromDept'] as String,
-  visitType: json['visitType'] as String,
-  reasonforRejection: json['reasonforRejection'] as String,
-  isPraimaryDateAccepted: json['isPraimaryDateAccepted'] as bool,
-  isCreatedByDept: json['isCreatedByDept'] as bool,
-  visitors: (json['visitors'] as List<dynamic>)
-      .map((e) => Visitor.fromJson(e as Map<String, dynamic>))
+  id: (json['id'] as num?)?.toInt(),
+  floorId: (json['floorId'] as num?)?.toInt(),
+  visitDate: json['visitDate'] as String?,
+  secondaryDate: json['secondaryDate'] as String?,
+  primaryDate: json['primaryDate'] as String?,
+  employeeNameInVisit: json['employeeNameInVisit'] as String?,
+  reason: json['reason'] as String?,
+  notes: json['notes'] as String?,
+  visitStateFromPolice: json['visitStateFromPolice'] as String?,
+  visitStateFromDept: json['visitStateFromDept'] as String?,
+  visitType: json['visitType'] as String?,
+  reasonforRejection: json['reasonforRejection'] as String?,
+  isPraimaryDateAccepted: json['isPraimaryDateAccepted'] as bool?,
+  isCreatedByDept: json['isCreatedByDept'] as bool?,
+  visitors: (json['visitors'] as List<dynamic>?)
+      ?.map((e) => Visitor.fromJson(e as Map<String, dynamic>))
       .toList(),
 );
 
@@ -65,19 +65,19 @@ Map<String, dynamic> _$FetchVisitsResponseItemToJson(
   'reasonforRejection': instance.reasonforRejection,
   'isPraimaryDateAccepted': instance.isPraimaryDateAccepted,
   'isCreatedByDept': instance.isCreatedByDept,
-  'visitors': instance.visitors.map((e) => e.toJson()).toList(),
+  'visitors': instance.visitors?.map((e) => e.toJson()).toList(),
 };
 
 Visitor _$VisitorFromJson(Map<String, dynamic> json) => Visitor(
-  id: (json['id'] as num).toInt(),
-  cardId: (json['cardId'] as num).toInt(),
-  name: json['name'] as String,
-  phone: json['phone'] as String,
-  nid: json['nid'] as String,
-  entryTime: json['entryTime'] as String,
-  leaveTime: json['leaveTime'] as String,
-  nidPicPath: json['niD_PicPath'] as String,
-  isBloacked: json['isBloacked'] as bool,
+  id: (json['id'] as num?)?.toInt(),
+  cardId: (json['cardId'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  phone: json['phone'] as String?,
+  nid: json['nid'] as String?,
+  entryTime: json['entryTime'] as String?,
+  leaveTime: json['leaveTime'] as String?,
+  nidPicPath: json['niD_PicPath'] as String?,
+  isBloacked: json['isBloacked'] as bool?,
 );
 
 Map<String, dynamic> _$VisitorToJson(Visitor instance) => <String, dynamic>{
