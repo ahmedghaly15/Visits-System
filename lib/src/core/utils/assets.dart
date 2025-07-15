@@ -20,11 +20,11 @@ class Assets {
   /// assets/images/logo-mini-white.png
   static const String imagesLogoMiniWhite = "assets/images/logo-mini-white.png";
 
+  /// Assets for imagesPerson
+  /// assets/images/person.png
+  static const String imagesPerson = "assets/images/person.png";
+
   /// Assets for lottieShyLottie
   /// assets/lottie/shy-lottie.json
   static const String lottieShyLottie = "assets/lottie/shy-lottie.json";
-
-  /// Assets for svgsLogin
-  /// assets/svgs/login.svg
-  static const String svgsLogin = "assets/svgs/login.svg";
 }

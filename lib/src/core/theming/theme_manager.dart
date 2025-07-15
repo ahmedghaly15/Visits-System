@@ -56,6 +56,11 @@ class ThemeManager {
 
   static ThemeData materialTheme(BuildContext context) =>
       Theme.of(context).copyWith(
+        appBarTheme: const AppBarTheme(
+          backgroundColor: ColorManager.scaffoldBg,
+          centerTitle: true,
+          foregroundColor: Colors.white,
+        ),
         scaffoldBackgroundColor: ColorManager.scaffoldBg,
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
