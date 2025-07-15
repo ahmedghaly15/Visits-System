@@ -9,9 +9,11 @@ class MainFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        context.translate(LocaleKeys.footer),
-        style: context.shadTextTheme.p,
+      child: FittedBox(
+        child: Text(
+          context.translate(LocaleKeys.footer),
+          style: context.shadTextTheme.p,
+        ),
       ),
     );
   }
